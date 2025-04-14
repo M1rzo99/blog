@@ -17,13 +17,15 @@ export const creteRound = Crete_Round({
 })
 
 export const metadata: Metadata = {
-  title: "empty-blog ",
+  title: "q13-blog ",
   description: "You can create your own blog",
+
 };
 
  function RootLayout({children,}:ChildProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning >
+
       <body className={`${creteRound.variable} ${workSans.variable} overflow-x-hidden`}>
       <ThemeProvider
             attribute="class"
