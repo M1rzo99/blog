@@ -1,12 +1,14 @@
-import BlogCard from '@/components/cards/blog'
-import { blogs } from '@/constants'
-import React from 'react'
 
+import React from 'react'
 import Link from 'next/link'
 import { Dot, Home } from 'lucide-react'
+import BlogCard from '@/components/cards/blog'
+import { getBlogs } from '@/services/blog.service'
 
 
-function Blogspage() {
+
+async function BlogsPage() {
+	const blogs = await getBlogs()
   return (
     <div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-center flex-col'>
@@ -37,4 +39,4 @@ function Blogspage() {
   )
 }
 
-export default Blogspage
+export default BlogsPage

@@ -1,9 +1,15 @@
-import Blog from '@/components/cards/blog'
+import BlogCard from '@/components/cards/blog'
+
 import BgArrow from '@/components/shared/bg-arrow'
-import { blogs } from '@/constants'
+
+import { getBlogs } from '@/services/blog.service'
 import React from 'react'
 
-function Home() {
+async function Home() {
+const blogs = await getBlogs()
+
+
+
   return (
     <div className='max-w-6xl mx-auto'>
       <div className='relative min-h-[60vh] flex items-center justify-center'>
@@ -18,7 +24,7 @@ function Home() {
 
     <div className='flex flex-col space-y-24 mt-24'>
       {blogs.map(blog=>(
-        <Blog key={blog.title} {...blog}/>
+        <BlogCard key={blog.title} {...blog}/>
       ))}
 
     </div>
