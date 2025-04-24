@@ -18,13 +18,13 @@ export const popularCategories = [
 	{ name: 'Front End', slug: 'front-end' },
 	{ name: 'Back End', slug: 'back-end' },
 	{ name: 'Full Stack', slug: 'full-stack' },
-	{ name: "Sun'iy Intelekt", slug: 'artificial-intelligence' },
+	{ name: "Engine", slug: 'engine-hard' },
 ]
 
 export const popularTags = [
 	{ name: 'ReactJS', slug: 'react-js' },
 	{ name: 'JavaScript', slug: 'java-script' },
-	{ name: 'Full Stack', slug: 'full-stack' },
+	{ name: 'NodeJS', slug: 'node-js' },
 	{ name: 'NextJS', slug: 'next-js' },
 ]
 
