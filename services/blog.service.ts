@@ -1,10 +1,9 @@
+import { IBlog } from "@/types";
+import request, { gql } from "graphql-request";
+const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHS_ENDPOINT!
 
-import { IBlog } from '@/types'
-import request,{ gql} from 'graphql-request'
-const graphqlAPI =process.env.NEXT_PUBLIC_GRAPHS_ENDPOINT!
-
-export const  getBlogs = async()=>{
-    const query = gql`
+export const getBlogs = async () => {
+  const query = gql`
     query MyQuery {
       blogs {
         title
@@ -12,8 +11,9 @@ export const  getBlogs = async()=>{
         description
         author {
           name
-          image{
-          url}
+          image {
+            url
+          }
         }
         category {
           name
@@ -23,15 +23,51 @@ export const  getBlogs = async()=>{
           name
           slug
         }
-          image{
+        image {
           url
+        }
+        content {
+          html
+        }
+        slug
+      }
+    }
+  `;
+
+  const { blogs } = await request<{ blogs: IBlog[] }>(graphqlAPI, query);
+  return blogs;
+};
+export const getBlogDetails = async (slug: string) => {
+  const query = gql`
+    query MyQuery($slug: String!) {
+      blog(where: { slug: $slug }) {
+        author {
+          name
+          image {
+            url
           }
-          content{
-          html}
+            bio
+        }
+        content {
+          html
+        }
+        createdAt
+        image {
+          url
+        }
+        slug
+        tag {
+          name
+          slug
+        }
+           category {
+          name
+          slug
+        }
+        title
       }
     }
   `
-
-const {blogs} = await request<{blogs:IBlog[]}>(graphqlAPI,query)
-return blogs
+  const { blog } = await request<{ blog: IBlog }>(graphqlAPI, query, { slug });
+  return blog;
 }

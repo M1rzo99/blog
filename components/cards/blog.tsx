@@ -1,3 +1,4 @@
+"use client"
 import { cn, getReadingTime } from '@/lib/utils'
 import { IBlog } from '@/types'
 import { CalendarDays, Clock, Dot, Minus } from 'lucide-react'
@@ -12,13 +13,14 @@ interface Props extends IBlog {
 
 function BlogCard(blog: Props) {
 	return (
-		<Link
-			href={'/'}
+		<div
+
 			className={cn(
 				'grid gap-4 group',
 				blog.isVertical ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'
 			)}
 		>
+			<Link href={`/blogs/${blog.slug}`} >
 			<div className='relative bg-secondary rounded-md'>
 				<Image
 					width={650}
@@ -28,6 +30,8 @@ function BlogCard(blog: Props) {
 					className='px-2 md:px-7 rounded-md group-hover:-translate-y-7 -translate-y-6 transition-all object-cover grayscale group-hover:grayscale-0 max-md:-translate-y-2 max-md:group-hover:-translate-y-3'
 				/>
 			</div>
+			</Link>
+			<Link href={`/blogs/${blog.slug}`}>
 			<div className='flex flex-col space-y-4'>
 				{/* Time info */}
 				<div className='flex items-center gap-4'>
@@ -47,6 +51,8 @@ function BlogCard(blog: Props) {
 					{blog.title}
 				</h2>
 				<p className='text-muted-foreground line-clamp-3'>{blog.description}</p>
+				</div>
+			</Link>
 
 				{/* Author */}
 				<div className='flex items-center gap-4'>
@@ -62,11 +68,13 @@ function BlogCard(blog: Props) {
 					</div>
 					<Dot />
 					<div className='flex items-center gap-2'>
-						<Badge variant={'secondary'}>{blog.tag.name}</Badge>
+						<Link href={`/tags/${blog.tag.slug}`}>
+						<Badge variant={'secondary'} role='button'>{blog.tag.name}</Badge>
+						</Link>
 					</div>
 				</div>
 			</div>
-		</Link>
+
 	)
 }
 

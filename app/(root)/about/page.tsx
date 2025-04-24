@@ -76,7 +76,7 @@ function AboutPage() {
 
 			<div className='flex justify-around max-md:flex-col max-md:space-y-4 max-md:items-center'>
 				{authors.map(c => (
-					<AuthorCard key={c.name} {...c} />
+					<AuthorCard  key={c.name} {...c} />
 				))}
 			</div>
 		</div>

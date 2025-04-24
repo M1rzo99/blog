@@ -24,7 +24,7 @@ export const popularCategories = [
 export const popularTags = [
 	{ name: 'ReactJS', slug: 'react-js' },
 	{ name: 'JavaScript', slug: 'java-script' },
-	{ name: 'NodeJS', slug: 'node-js' },
+	{ name: 'Full Stack', slug: 'full-stack' },
 	{ name: 'NextJS', slug: 'next-js' },
 ]
 
