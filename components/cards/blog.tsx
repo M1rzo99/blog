@@ -1,6 +1,6 @@
 "use client"
 import { cn, getReadingTime } from '@/lib/utils'
-import { IBlog } from '@/types'
+import { IBlog } from '@/types/'
 import { CalendarDays, Clock, Dot, Layers2, Minus, Tags } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'

@@ -1,9 +1,10 @@
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
+import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import { popularCategories, popularTags } from '@/constants'
-import {  Search } from 'lucide-react'
+import {   Minus, Search } from 'lucide-react'
 import React from 'react'
 import { Badge } from "@/components/ui/badge"
+import Link from 'next/link'
 
 function GlobalSearch() {
   return (
@@ -23,7 +24,13 @@ function GlobalSearch() {
         />
 
         <div className='flex flex-col space-y-2 mt-4'>
-            <p className='font-creteRound text-2xl'> See posts by Categories</p>
+           <div className='flex items-center gap-2'>
+           <p className='font-creteRound text-2xl'> See posts by Categories</p>
+           <Minus/>
+
+          <Link href={"/categories"}
+          className='text-blue-500 underline hover:opacity-80'> <DrawerClose> See all</DrawerClose>  </Link>
+           </div>
             <div className='flex flex-wrap gap-2'>
                 {popularCategories.map(item=>(
                     <Badge key={item.slug} >
@@ -35,7 +42,14 @@ function GlobalSearch() {
 
 
         <div className='flex flex-col space-y-2 mt-4'>
-            <p className='font-creteRound text-2xl'> See posts by Tags</p>
+        <div className='flex items-center gap-2'>
+        <p className='font-creteRound text-2xl'> See posts by Tags</p>
+           <Minus/>
+
+          <Link href={"/tags"}
+          className='text-blue-500 underline hover:opacity-80'> <DrawerClose> See all</DrawerClose> </Link>
+           </div>
+
             <div className='flex flex-wrap gap-2'>
                 {popularTags.map(item=>(
                     <Badge key={item.slug} >

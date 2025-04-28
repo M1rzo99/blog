@@ -3,21 +3,21 @@ import request, { gql } from 'graphql-request'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHS_ENDPOINT!
 
-export const getTags = async () => {
+export const getCategories = async () => {
 	const query = gql`
 		query MyQuery {
-			tags {
+			categories {
 				name
 				slug
 			}
 		}
 	`
 
-	const { tags } = await request<{ tags: ICategoryAndTags[] }>(
+	const { categories } = await request<{ categories: ICategoryAndTags[] }>(
 		graphqlAPI,
 		query
 	)
-	return tags
+	return categories
 }
 
 export const getBlogsByCategory = async (slug: string) => {

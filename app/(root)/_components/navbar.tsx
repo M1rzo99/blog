@@ -8,6 +8,7 @@ import GlobalSearch from './global-search'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import Mobile from './mobile'
+import { clear } from 'console'
 
 const Navbar = () => {
 const pathname=  usePathname()
@@ -34,6 +35,7 @@ const pathname=  usePathname()
         </div>
         {/* Search */}
         <div className='flex items-center gap-1'>
+
         <GlobalSearch/>
            <ModeToggle/>
               <Mobile/>
