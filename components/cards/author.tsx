@@ -1,6 +1,5 @@
 import { IAuthor } from '@/types/index'
 import Image from 'next/image'
-import React from 'react'
 
 function AuthorCard(author: IAuthor) {
   return (
@@ -17,9 +16,8 @@ function AuthorCard(author: IAuthor) {
 
       <p className='text-muted-foreground'>
         <span>{author.bio}</span> |
-        <span className='font-bold text-white'>13+  </span>
+        <span className='font-bold text-white'>{author.blogs.length}</span>
         Posts Published
-
       </p>
     </div>
   )

@@ -23,36 +23,27 @@ export const getTags = async () => {
 export const getBlogsByTag = async (slug: string) => {
 	const query = gql`
 		query MyQuery($slug: String!) {
-			tag(where: { slug: $slug }) {
-				blogs {
-					description
-					author {
-						name
-						image {
-							url
-						}
-						bio
-					}
-					content {
-						html
-					}
-					createdAt
-					image {
-						url
-					}
-					slug
-					tag {
-						name
-						slug
-					}
-					category {
-						name
-						slug
-					}
-					title
-				}
-				name
-			}
+  tag(where: {slug: $slug}) {
+    blogs {
+      ... on Blog {
+        id
+        title
+        description
+        content {
+          html
+        }
+        createdAt
+        slug
+        category {
+          name
+          slug
+          createdAt
+        }
+      }
+
+    }
+    name
+  }
 		}
 	`
 
