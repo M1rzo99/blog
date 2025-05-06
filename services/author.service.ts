@@ -7,11 +7,14 @@ export const getAuthors = async ()=>{
     const query  = gql`
   query MyQuery {
   authors {
-    id
     name
+    id
     bio
-     image{url}
+    image {
+      url
+    }
     blogs {
+
       ... on Blog {
         id
       }

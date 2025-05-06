@@ -21,8 +21,6 @@ import Link from 'next/link'
 async function SlugPage({ params }: { params: { slug: string } }) {
 	const blog = await getBlogDetails(params.slug)
 
-	console.log(blog)
-
 	return (
 		<div className='pt-[15vh] max-w-5xl mx-auto'>
 			<h1 className='lg:text-6xl md:text-5xl text-4xl font-creteRound'>

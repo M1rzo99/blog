@@ -25,6 +25,7 @@ export const getBlogsByCategory = async (slug: string) => {
 		query MyQuery($slug: String!) {
 			category(where: { slug: $slug }) {
 				blogs {
+					... on Blog{
 					description
 					author {
 						name
@@ -50,6 +51,8 @@ export const getBlogsByCategory = async (slug: string) => {
 						slug
 					}
 					title
+				}
+
 				}
 				name
 			}

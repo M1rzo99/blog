@@ -6,6 +6,7 @@ export const getBlogs = async () => {
   const query = gql`
     query MyQuery {
       blogs {
+       ... on Blog{
         title
         createdAt
         description
@@ -30,6 +31,7 @@ export const getBlogs = async () => {
           html
         }
         slug
+       }
       }
     }
   `;
@@ -39,8 +41,13 @@ export const getBlogs = async () => {
 };
 export const getBlogDetails = async (slug: string) => {
   const query = gql`
-    query MyQuery($slug: String!) {
+
+query MyQuery($slug: String!) {
       blog(where: { slug: $slug }) {
+     ...on Blog{
+       image {
+          url
+        }
         author {
           name
           image {
@@ -52,19 +59,18 @@ export const getBlogDetails = async (slug: string) => {
           html
         }
         createdAt
-        image {
-          url
-        }
         slug
         tag {
           name
           slug
+
         }
            category {
           name
           slug
         }
         title
+    }
       }
     }
   `

@@ -76,11 +76,7 @@ async function AboutPage() {
 			</h2>
 
 			<div className='flex justify-around max-md:flex-col max-md:space-y-4 max-md:items-center'>
-			{authors.map(c => (
-  <AuthorCard
-    key={c.name}
-    {...c}
-  />
+			{authors.map(c => ( <AuthorCard key={c.name}  {...c}/>
 ))}
 
 			</div>

@@ -39,12 +39,24 @@ export const getBlogsByTag = async (slug: string) => {
           slug
           createdAt
         }
+        tag {
+          name
+          slug
+          createdAt
+        }
+        image {
+          url
+        }
+        author {
+          image {
+            url
+          }
+        }
       }
-
     }
     name
   }
-		}
+}
 	`
 
 	const { tag } = await request<{ tag: { blogs: IBlog[]; name: string } }>(

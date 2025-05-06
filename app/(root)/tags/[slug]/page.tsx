@@ -5,7 +5,7 @@ import { Dot, Home } from 'lucide-react'
 import Link from 'next/link'
 
 async function Page({ params }: { params: { slug: string } }) {
-	const tag = await getBlogsByTag(params.slug)
+	const tag = await getBlogsByTag(params.slug);
 
 	return (
 		<div className='max-w-6xl mx-auto'>
@@ -28,9 +28,9 @@ async function Page({ params }: { params: { slug: string } }) {
 			</div>
 
 			<div className='grid grid-cols-2 max-md:grid-cols-1 gap-x-4 gap-y-24 mt-24'>
-				{/* {tag.blogs.map(blog => (
+				{tag.blogs.map(blog => (
 					<BlogCard key={blog.title} {...blog} isVertical />
-				))} */}
+				))}
 			</div>
 		</div>
 	)

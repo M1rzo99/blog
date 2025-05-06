@@ -8,7 +8,7 @@ import React from 'react'
 async function Home() {
 const blogs = await getBlogs()
 
-
+console.log(blogs);
 
   return (
     <div className='max-w-6xl mx-auto'>
