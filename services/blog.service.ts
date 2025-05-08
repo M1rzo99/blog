@@ -1,5 +1,6 @@
 import { IBlog } from "@/types";
 import request, { gql } from "graphql-request";
+import { title } from "process";
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHS_ENDPOINT!;
 
 export const getBlogs = async () => {
@@ -76,3 +77,22 @@ export const getBlogDetails = async (slug: string) => {
   const { blog } = await request<{ blog: IBlog }>(graphqlAPI, query, { slug });
   return blog;
 };
+
+
+export const getSearchBlogs = async(title:string)=>{
+  const query = gql`
+    query MyQuery($title:String!) {
+    blogs(where:{title_contains:$title}){
+      title
+      image{
+     		 url
+      }
+      slug
+      createdAt
+    }
+
+    }
+  `
+  const {blogs} = await request <{blogs:IBlog[]}>(graphqlAPI,query,{title})
+  return blogs
+}
