@@ -8,8 +8,6 @@ import React from "react";
 async function Home() {
   const blogs = await getBlogs();
 
-  console.log(blogs);
-
   return (
     <div className="max-w-6xl mx-auto">
       <div className="relative min-h-[60vh] flex items-center justify-center">

@@ -1,4 +1,4 @@
-import { IBlog } from "@/types";
+import { IArchiveBlogs, IBlog } from "@/types";
 import request, { gql } from "graphql-request";
 import { title } from "process";
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHS_ENDPOINT!;
@@ -6,7 +6,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHS_ENDPOINT!;
 export const getBlogs = async () => {
   const query = gql`
     query MyQuery {
-      blogs {
+      blogs(where:{archive:false}) {
         ... on Blog {
           title
           createdAt
@@ -40,6 +40,7 @@ export const getBlogs = async () => {
   const { blogs } = await request<{ blogs: IBlog[] }>(graphqlAPI, query);
   return blogs;
 };
+
 export const getBlogDetails = async (slug: string) => {
   const query = gql`
     query MyQuery($slug: String!) {
@@ -96,3 +97,31 @@ export const getSearchBlogs = async(title:string)=>{
   const {blogs} = await request <{blogs:IBlog[]}>(graphqlAPI,query,{title})
   return blogs
 }
+
+
+export const getArchiveBlogs = async () => {
+  const query = gql`
+    query MyQuery {
+      blogs(where:{archive:true}) {
+        ... on Blog {
+          title
+          createdAt
+          slug
+        }
+      }
+    }
+  `;
+
+  const { blogs } = await request<{ blogs: IBlog[] }>(graphqlAPI, query);
+  //NOTE - bu qismda archive true bolgan bloglarni olish uchun ishlatiladi
+  const filteredBlogs = blogs.reduce((acc:{[year:string]:IArchiveBlogs},blog:IBlog)=>{
+    const year = blog.createdAt.substring(0,4)
+    if(!acc[year]){
+      acc[year] = {year,blogs:[]}
+    }
+    acc[year].blogs.push(blog)
+    return acc
+  },{})
+  const results :IArchiveBlogs[] = Object.values(filteredBlogs)
+  return results
+};
