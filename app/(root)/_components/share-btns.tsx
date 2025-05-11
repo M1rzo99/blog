@@ -1,7 +1,6 @@
 "use client"
 import { Button } from '@/components/ui/button'
 import { Facebook, Link2, Linkedin, Send, Twitter } from 'lucide-react'
-import { PathnameContext } from 'next/dist/shared/lib/hooks-client-context.shared-runtime'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import { toast } from 'sonner'

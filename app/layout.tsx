@@ -6,38 +6,36 @@ import { ThemeProvider } from "./(root)/_components/providers/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import NextTopLoader from 'nextjs-toploader'
 
-export const workSans = Work_Sans({
+const workSans = Work_Sans({
   weight: ["500", "600"],
   subsets: ["latin"],
   variable: "--font-workSans",
 });
 
-export const creteRound = Crete_Round({
+const creteRound = Crete_Round({
   weight: ["400"],
   subsets: ["latin"],
   variable: "--font-creteRound",
 });
-//FIXME -  SEO qilish
+
 export const metadata: Metadata = {
-  metadataBase:new URL("https://q13-blog.ac"),
-  authors:[{name: 'Mirzo Shomuratov', url: 'https://Mirzo.ac'}],
-  icons:{icon:'/thirteen.png'},
+  metadataBase: new URL("https://q13-blog.ac"),
+  authors: [{ name: 'Mirzo Shomuratov', url: 'https://Mirzo.ac' }],
+  icons: { icon: '/thirteen.png' },
   title: "q13-blog ",
   description: "You can create your own blog",
-  keywords: "blog, nextjs, typescript, react, tailwindcss, blog-q13, blogs, BLOG,q13",
-  openGraph:{
+  keywords: "blog, nextjs, typescript, react, tailwindcss, blog-q13, blogs, BLOG, q13",
+  openGraph: {
     title: "q13-blog",
     description: "You can create your own blog",
-    type:"website",
+    type: "website",
     url: "https://q13-blog.ac",
     siteName: "q13-blog",
     locale: "en_US",
-    images: {url: "https://q13-blog.ac/thirteen.png"},
-    emails:"accaunoff99@gmail.com",
-
-
-}
-}
+    images: { url: "https://q13-blog.ac/thirteen.png" },
+    emails: "accaunoff99@gmail.com",
+  }
+};
 
 function RootLayout({ children }: ChildProps) {
   return (
@@ -51,12 +49,13 @@ function RootLayout({ children }: ChildProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <NextTopLoader  showSpinner={false}/>
+          <NextTopLoader showSpinner={false} />
           {children}
-          <Toaster position="top-center"/>
+          <Toaster position="top-center" />
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
 export default RootLayout;

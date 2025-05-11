@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+
 import { getReadingTime } from "@/lib/utils";
 import { getBlogDetails } from "@/services/blog.service";
 
@@ -8,12 +8,9 @@ import {
   ArrowUpRight,
   CalendarDays,
   Clock,
-  Facebook,
-  Link2,
-  Linkedin,
+
   Minus,
-  Send,
-  Twitter,
+
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

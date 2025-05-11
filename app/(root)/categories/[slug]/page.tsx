@@ -1,6 +1,6 @@
 import BlogCard from "@/components/cards/blog";
 import { getBlogsByCategory } from "@/services/category.service";
-import { getBlogsByTag } from "@/services/tag.service";
+
 import { Dot, Home } from "lucide-react";
 import Link from "next/link";
 

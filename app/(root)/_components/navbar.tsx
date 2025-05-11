@@ -1,14 +1,12 @@
 "use client";
 import ModeToggle from "@/components/shared/mode-toggle";
 import { navLinks } from "@/constants";
-import { Search } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import GlobalSearch from "./global-search";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import Mobile from "./mobile";
-import { clear } from "console";
 
 const Navbar = () => {
   const pathname = usePathname();

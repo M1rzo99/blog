@@ -6,34 +6,32 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getReadingTime(content: string) {
-  const WPS = 230 / 60;
-
-  let images = 0;
+  const WPS = 230 / 60; // Words per second
+  let imageCount = 0;
   const regex = /\w/;
 
-  let words = content.split(" ").filter((word) => {
-    if (word.includes("<img")) {
-      images + 1;
-    }
-    return regex.test(word);
-  }).length;
+  const words = content
+    .split(" ")
+    .filter((word) => {
+      if (word.includes("<img")) {
+        imageCount += 1;
+      }
+      return regex.test(word);
+    }).length;
 
-  let imageAdjust = images * 4;
+  const imageAdjust = imageCount * 4;
   let imageSecs = 0;
   let imageFactor = 12;
 
-  while (images) {
+  for (let i = 0; i < imageCount; i++) {
     imageSecs += imageFactor;
     if (imageFactor > 3) {
       imageFactor -= 1;
     }
-    images -= 1;
   }
 
-  const minutes = Math.ceil((words - imageAdjust) / WPS / 60);
-  if (minutes < 9) {
-    return "0" + minutes;
-  } else {
-    return minutes;
-  }
+  // O‘qish vaqtini hisoblashda imageSecs ni ham qo‘shamiz
+  const minutes = Math.ceil(((words - imageAdjust) / WPS + imageSecs) / 60);
+
+  return minutes < 10 ? "0" + minutes : String(minutes);
 }
