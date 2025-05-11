@@ -4,6 +4,7 @@ import { Crete_Round, Work_Sans } from "next/font/google";
 import { ChildProps } from "@/types";
 import { ThemeProvider } from "./(root)/_components/providers/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import NextTopLoader from 'nextjs-toploader'
 
 export const workSans = Work_Sans({
   weight: ["500", "600"],
@@ -16,11 +17,27 @@ export const creteRound = Crete_Round({
   subsets: ["latin"],
   variable: "--font-creteRound",
 });
-
+//FIXME -  SEO qilish
 export const metadata: Metadata = {
+  metadataBase:new URL("https://q13-blog.ac"),
+  authors:[{name: 'Mirzo Shomuratov', url: 'https://Mirzo.ac'}],
+  icons:{icon:'/thirteen.png'},
   title: "q13-blog ",
   description: "You can create your own blog",
-};
+  keywords: "blog, nextjs, typescript, react, tailwindcss, blog-q13, blogs, BLOG,q13",
+  openGraph:{
+    title: "q13-blog",
+    description: "You can create your own blog",
+    type:"website",
+    url: "https://q13-blog.ac",
+    siteName: "q13-blog",
+    locale: "en_US",
+    images: {url: "https://q13-blog.ac/thirteen.png"},
+    emails:"accaunoff99@gmail.com",
+
+
+}
+}
 
 function RootLayout({ children }: ChildProps) {
   return (
@@ -34,6 +51,7 @@ function RootLayout({ children }: ChildProps) {
           enableSystem
           disableTransitionOnChange
         >
+          <NextTopLoader  showSpinner={false}/>
           {children}
           <Toaster position="top-center"/>
         </ThemeProvider>

@@ -3,6 +3,11 @@ import Link from "next/link";
 import { Dot, Home } from "lucide-react";
 import BlogCard from "@/components/cards/blog";
 import { getBlogs } from "@/services/blog.service";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title:"All blogs"
+}
+
 
 async function BlogsPage() {
   const blogs = await getBlogs();

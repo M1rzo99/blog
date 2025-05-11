@@ -82,13 +82,15 @@ const debounceSearch = debounce(handleSearch, 500) // search qilganda har safar 
                   href={"/categories"}
                   className="text-blue-500 underline hover:opacity-80"
                 >
+                    <DrawerClose> See all</DrawerClose>{" "}
                   {" "}
-                  <DrawerClose> See all</DrawerClose>{" "}
                 </Link>
               </div>
               <div className="flex flex-wrap gap-2">
                 {popularCategories.map((item) => (
-                  <Badge key={item.slug}>{item.name}</Badge>
+               <Link  key={item.slug} href={`/categories/${item.slug}`}>
+                <DrawerClose>  <Badge>{item.name}</Badge></DrawerClose>
+               </Link>
                 ))}
               </div>
             </div>
@@ -109,7 +111,9 @@ const debounceSearch = debounce(handleSearch, 500) // search qilganda har safar 
 
               <div className="flex flex-wrap gap-2">
                 {popularTags.map((item) => (
-                  <Badge key={item.slug}>{item.name}</Badge>
+                  <Link  key={item.slug} href={`/tags/${item.slug}`}>
+                  <DrawerClose>  <Badge>{item.name}</Badge></DrawerClose>
+                 </Link>
                 ))}
               </div>
             </div>

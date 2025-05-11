@@ -3,6 +3,11 @@ import Link from "next/link";
 import { Dot, Home } from "lucide-react";
 import { getCategories } from "@/services/category.service";
 import CategoriesTagsCard from "@/components/cards/categories-tags";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title:"All tags"
+}
 
 async function Page() {
   const tags = await getCategories();

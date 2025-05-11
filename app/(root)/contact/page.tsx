@@ -3,7 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Dot, Home, Mail, Phone, Send } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
+export const metadata: Metadata = {
+  title:"Contact us"
+}
+
 
 function ContactPage() {
   return (

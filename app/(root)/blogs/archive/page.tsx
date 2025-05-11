@@ -1,7 +1,12 @@
 import { getArchiveBlogs } from "@/services/blog.service";
 import { format } from "date-fns";
 import { Archive, Dot, Home } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
+export const metadata: Metadata = {
+  title:"Archive blogs"
+}
+
 
 async function ArchivePage() {
   const blogs  = await getArchiveBlogs()
@@ -47,7 +52,7 @@ async function ArchivePage() {
             <div key={item.slug} className="flex gap-2 text-lg text-muted-foreground">
           <p>{format(new Date (item.createdAt),'dd MMM' )}</p>
           <Dot className="text-white w-8 h-8" />
-          <Link href={`/blogs/${item.slug}`} className="hover:text-white hover:underline cursor-pointer">
+          <Link href={`/blogs/${item.slug}`} className=" hover:underline cursor-pointer">
               {item.title}
           </Link>
         </div>
