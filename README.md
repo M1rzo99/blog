@@ -86,7 +86,13 @@ cp .env.example .env.local
 Add your **Hygraph** endpoint to `.env.local`:
 
 ```env
-NEXT_PUBLIC_HYGRAPH_ENDPOINT=your_hygraph_graphql_endpoint
+# Project Settings → Endpoints → Copy High Performance Content API
+NEXT_PUBLIC_GRAPHS_ENDPOINT=yourEndPoint
+
+
+NEXT_PUBLIC_TG_BOT_API=yourTgBotAPI
+NEXT_PUBLIC_TG_CHAT_ID=YourTgchatApi
+
 ```
 
 ```bash
