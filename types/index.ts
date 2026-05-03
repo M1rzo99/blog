@@ -13,7 +13,7 @@ export interface IBlog {
   author: IAuthor;
   category: ICategoryAndTags;
   tag: ICategoryAndTags;
-  image: { url: string };
+  image: { url: string };        // ✅ string | olib tashlandi
   createdAt: string;
   content: { html: string };
   slug: string;
@@ -21,7 +21,7 @@ export interface IBlog {
 
 export interface IAuthor {
   name: string;
-  image: { url: string };
+  image: { url: string } | null; // ✅ null bo'lishi mumkin, string emas
   bio: string;
   blogs: IBlog[];
   id: string;

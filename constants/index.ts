@@ -33,7 +33,7 @@ export const blogs = [
     title: "The AGI hype train is running out of steam",
     description:
       "While futurists and fundraisers used to make bullish predictions about artificial general intelligence, they’ve become quieter lately. Peter Thiel.",
-    author: "Samar",
+    author: "Rustam",
     tags: ["Machine learning"],
     date: "Dec 5, 2021",
     image: "/blogs/02.jpg",
