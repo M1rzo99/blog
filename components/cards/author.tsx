@@ -14,18 +14,14 @@ function AuthorCard(author: IAuthor) {
 					src={author?.image?.url ?? '/01.jpg'}
 					alt={author.name}
 					fill
-					className='object-cover rounded-md grayscale hover:grayscale-0 transition-all'
+					className='object-cover p-2 rounded-md grayscale hover:grayscale-0 transition-all'
 				/>
 			</div>
 			<h2 className='text-2xl font-creteRound'>{author.name}</h2>
 
 			<p className='text-muted-foreground'>
-				<span>{author.bio}</span> |
-				<span className='font-bold text-white'>
-					{' '}
-					- {author.blogs.length} -{' '}
-				</span>
-				Posts Published
+				<span className='font-bold text-white'> {author.blogs.length} </span>
+				Post Published
 			</p>
 		</Link>
 	)

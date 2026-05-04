@@ -35,7 +35,7 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 			<div className='flex items-center flex-wrap max-md:justify-center gap-4 mt-4'>
 				<div className='flex items-center gap-2'>
 					<Image
-						src={blog.author.image?.url ?? '/default-avatar.png'}
+						src={blog.author.image?.url ?? '/01.jpg'}
 						alt='author'
 						width={30}
 						height={30}
