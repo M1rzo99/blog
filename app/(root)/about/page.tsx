@@ -31,7 +31,7 @@ async function AboutPage() {
 				</div>
 			</div>
 			<h1 className='text-center text-4xl font-creteRound'>
-				Hi, Im The Mijoo content writer and designer.
+				Hi, I The Mirzo Shomuratov,content writer and designer.
 			</h1>
 
 			<div className='grid grid-cols-4 gap-4 min-h-96 mt-6'>
@@ -63,16 +63,11 @@ async function AboutPage() {
 
 			<div className='max-w-6xl mx-auto mt-12 flex flex-col text-center space-y-4 text-muted-foreground'>
 				<p>
-					If ever a place existed where you could just go crazy creatively, it
-					is definitely your about page. It’s your chance to show your readers
-					who you really are. Pictures, quotes, inspirational graphics, whatever
-					it is that drives you.. Display it here in a way that only you can.
-				</p>
-				<p>
-					I’ve included a plugin in the setup of this theme that will make
-					adding columns to your pages and posts a piece of cake. Let creativity
-					take control, and forget about the technical end of things, I’ve got
-					your six.
+					Hi👋. I'm Mirzobek Shomuratov I am currently pursuing a bachelor
+					degreed in South Korea. I have decided to start a blog to share my
+					experiences, challenges, opportunities, and the knowledge I’ve gained
+					along the way. If what I share can be helpful to someone, I will be
+					truly happy.
 				</p>
 			</div>
 
