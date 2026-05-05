@@ -58,8 +58,8 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 			<Image
 				src={blog.image.url}
 				alt='alt'
-				width={`1000`}
-				height={`250`}
+				width={`700`}
+				height={`200`}
 				className='mt-4 rounded-md'
 			/>
 
