@@ -57,10 +57,10 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 
 			<Image
 				src={blog.image.url}
-				alt='alt'
-				width={`700`}
-				height={`200`}
-				className='mt-4 rounded-md'
+				alt='blog image'
+				width={900}
+				height={500}
+				className='mt-4 rounded-md w-full h-[400px] object-cover'
 			/>
 
 			<div className='flex md:gap-12 max-md:flex-col-reverse mt-12 relative'>
