@@ -31,7 +31,7 @@ async function AboutPage() {
 				</div>
 			</div>
 			<h1 className='text-center text-4xl font-creteRound'>
-				Hi, I'm The Mijoo. content writer and designer.
+				Hi, Im The Mijoo content writer and designer.
 			</h1>
 
 			<div className='grid grid-cols-4 gap-4 min-h-96 mt-6'>
