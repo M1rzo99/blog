@@ -63,11 +63,11 @@ async function AboutPage() {
 
 			<div className='max-w-6xl mx-auto mt-12 flex flex-col text-center space-y-4 text-muted-foreground'>
 				<p>
-					Hi👋. I'm Mirzobek Shomuratov I am currently pursuing a bachelor
+					Hi. I am Mirzobek Shomuratov I am currently pursuing a bachelor
 					degreed in South Korea. I have decided to start a blog to share my
-					experiences, challenges, opportunities, and the knowledge I’ve gained
-					along the way. If what I share can be helpful to someone, I will be
-					truly happy.
+					experiences, challenges, opportunities, and the knowledge I have
+					gained along the way. If what I share can be helpful to someone, I
+					will be truly happy.
 				</p>
 			</div>
 
