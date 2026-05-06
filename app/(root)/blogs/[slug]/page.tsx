@@ -76,26 +76,13 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 			</div>
 
 			<div className='flex mt-6 gap-6 items-center max-md:flex-col'>
-				<Image
-					src={blog.author.image?.url ?? '/01.jpg'}
-					alt='author'
-					width='155'
-					height='155'
-					className='rounded-md max-md:self-start'
-				/>
-				<div className='flex-1 flex flex-col space-y-4'>
-					<h2 className='text-3xl font-creteRound'>{blog.author.name}</h2>
-					<p className='line-clamp-2 text-muted-foreground'>
-						{blog.author.bio}
-					</p>
-					<Link
-						href={`/author/${blog.author.id}`}
-						className='flex items-center gap-2 hover:text-blue-500 underline transition-colors'
-					>
-						<span>See all posts by this author</span>
-						<ArrowUpRight />
-					</Link>
-				</div>
+				<Link
+					href={`/author/${blog.author.id}`}
+					className='flex items-center gap-2 hover:text-blue-500 underline transition-colors'
+				>
+					<span>See all posts by this author</span>
+					<ArrowUpRight />
+				</Link>
 			</div>
 		</div>
 	)

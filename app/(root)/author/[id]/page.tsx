@@ -17,11 +17,8 @@ async function Page({ params }: { params: { id: string } }) {
 				/>
 				<div className='flex-1 flex flex-col space-y-4'>
 					<p className='text-muted-foreground text-xl'>
-						<span className='font-bold text-white '>
-							{' '}
-							- {author.blogs.length} -{' '}
-						</span>
-						Published Posts
+						<span className='font-bold '> {author.blogs.length} - </span>
+						Posts Published
 					</p>
 					<h2 className='text-3xl font-createRound'> {author.name} </h2>
 					<p className='line-clamp-2 text-muted-foreground max-w-xl'>
