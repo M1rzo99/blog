@@ -31,7 +31,7 @@ async function AboutPage() {
 				</div>
 			</div>
 			<h1 className='text-center text-4xl font-creteRound'>
-				Hi, I The Mirzo Shomuratov,content writer and designer.
+				Hi, I am Mirzo Shomuratov,content creator and writer.
 			</h1>
 
 			<div className='grid grid-cols-4 gap-4 min-h-96 mt-6'>
@@ -63,8 +63,8 @@ async function AboutPage() {
 
 			<div className='max-w-6xl mx-auto mt-12 flex flex-col text-center space-y-4 text-muted-foreground'>
 				<p>
-					Hi👋. I am Mirzobek Shomuratov I am currently pursuing a bachelor
-					degreed in South Korea. I have decided to start a blog to share my
+					Hi👋. I am Mirzobek Shomuratov I am graduated a bachelor degreed in
+					South Korea,CS. I have decided to start a blog to share my
 					experiences, challenges, opportunities, and the knowledge I have
 					gained along the way. If what I share can be helpful to someone, I
 					will be truly happy.
