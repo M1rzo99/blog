@@ -10,7 +10,7 @@ function ContactPage() {
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-end flex-col'>
-				<h2 className='text-center text-4xl section-title font-creteRound mt-2'>
+				<h2 className='text-center text-4xl section-title font-luckiest mt-2'>
 					<span>Contact</span>
 				</h2>
 
@@ -29,7 +29,7 @@ function ContactPage() {
 
 			<div className='grid grid-cols-2 max-md:grid-cols-1 gap-4 mt-6'>
 				<div className='flex flex-col'>
-					<h1 className='text-4xl font-creteRound'>Contact Mirzo</h1>
+					<h1 className='text-4xl font-luckiest'>Contact</h1>
 					<p className='mt-2 text-muted-foreground'>
 						I am here to help and answer any question you might have. I look
 						forward to hearing from you
@@ -46,7 +46,7 @@ function ContactPage() {
 				</div>
 
 				<div>
-					<h1 className='text-4xl font-creteRound mb-2'>Contact form</h1>
+					<h1 className='text-4xl font-luckiest mb-2'>Say Hi, Don't Shy😉</h1>
 					<ContactForm />
 				</div>
 			</div>

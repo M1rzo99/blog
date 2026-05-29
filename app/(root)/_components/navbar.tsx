@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="container w-full max-w-6xl mx-auto h-[10vh] justify-between flex items-center">
         {/* logo */}
         <Link href={"/"}>
-          <h1 className="text-4xl font-creteRound">q13</h1>
+          <h1 className="text-4xl font-luckiest">q13</h1>
         </Link>
         {/* Nav Links */}
         <div className="gap-2 hidden md:flex">

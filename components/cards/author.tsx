@@ -17,10 +17,10 @@ function AuthorCard(author: IAuthor) {
 					className='object-cover p-2 rounded-md grayscale hover:grayscale-0 transition-all'
 				/>
 			</div>
-			<h2 className='text-2xl font-creteRound'>{author.name}</h2>
+			<h2 className='text-2xl font-luckiest'>{author.name}</h2>
 
 			<p className='text-muted-foreground'>
-				<span className='font-bold text-white'> {author.blogs.length} </span>
+				<span className='font-bold text-black'> {author.blogs.length} </span>-
 				Post Published
 			</p>
 		</Link>

@@ -15,7 +15,7 @@ function CategoriesTagsCard(item: Props) {
      dark:shadow-white/5'
 		>
 			{item.type === 'tags' ? <Tags /> : <Layers2 />}
-			<h1 className='text-2xl font-creteRound'>{item.name}</h1>
+			<h1 className='text-2xl font-luckiest'>{item.name}</h1>
 			<p>blog -{item.blogs.length} </p>
 		</Link>
 	)

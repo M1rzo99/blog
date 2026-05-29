@@ -56,7 +56,7 @@ function GlobalSearch() {
 						/>
 						{isLoading && <Loader2 className='animate-spin mt-4 mx-auto' />}
 						{blogs.length ? (
-							<div className='text-2xl font-creteRound mt-8'>
+							<div className='text-2xl font-luckiest mt-8'>
 								{blogs.length} Results found.
 							</div>
 						) : null}
@@ -69,7 +69,7 @@ function GlobalSearch() {
 
 						<div className='flex flex-col space-y-2 mt-4'>
 							<div className='flex items-center gap-2'>
-								<p className='font-creteRound text-2xl'>
+								<p className='font-luckiest text-2xl'>
 									{' '}
 									See posts by Categories
 								</p>
@@ -101,7 +101,7 @@ function GlobalSearch() {
 
 						<div className='flex flex-col space-y-2 mt-4'>
 							<div className='flex items-center gap-2'>
-								<p className='font-creteRound text-2xl'> See posts by Tags</p>
+								<p className='font-luckiest text-2xl'> See posts by Tags</p>
 								<Minus />
 
 								<Link

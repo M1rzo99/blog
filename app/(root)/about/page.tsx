@@ -5,6 +5,8 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
 	title: 'About us',
 }
@@ -14,7 +16,7 @@ async function AboutPage() {
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-center flex-col'>
-				<h2 className='text-center text-4xl section-title font-creteRound'>
+				<h2 className='text-center text-4xl section-title font-luckiest'>
 					<span>About</span>
 				</h2>
 
@@ -30,7 +32,7 @@ async function AboutPage() {
 					<p className='text-muted-foreground'>About</p>
 				</div>
 			</div>
-			<h1 className='text-center text-4xl font-creteRound'>
+			<h1 className='text-center text-4xl font-luckiest'>
 				Hi, I am Mirzo Shomuratov,content creator and writer.
 			</h1>
 
@@ -61,17 +63,17 @@ async function AboutPage() {
 				</div>
 			</div>
 
-			<div className='max-w-6xl mx-auto mt-12 flex flex-col text-center space-y-4 text-muted-foreground'>
+			<div className='max-w-6xl mx-auto mt-12 flex flex-col text-center space-y-4  text-muted-foreground'>
 				<p>
-					Hi👋. I am Mirzobek Shomuratov I am graduated a bachelor degreed in
-					South Korea,CS. I have decided to start a blog to share my
+					Assalomalaykum!👋. I am Mirzobek Shomuratov I am graduated a bachelor
+					degreed in South Korea,CS. I have decided to start a blog to share my
 					experiences, challenges, opportunities, and the knowledge I have
 					gained along the way. If what I share can be helpful to someone, I
 					will be truly happy.
 				</p>
 			</div>
 
-			<h2 className='text-center text-4xl section-title font-creteRound my-12'>
+			<h2 className='text-center text-4xl section-title font-luckiest my-12'>
 				<span>Our writers</span>
 			</h2>
 

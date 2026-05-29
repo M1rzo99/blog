@@ -72,6 +72,8 @@ const config: Config = {
     fontFamily: {
       creteRound: ["var(--font-creteRound)"],
       workSans: ["var(--font-workSans)"],
+      playfair: ["var(--font-playfairDisplay)"],
+      luckiest: ["var(--font-luckiestGuy)"],
     },
   },
 

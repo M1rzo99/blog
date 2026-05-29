@@ -19,7 +19,7 @@ async function Page({ params }: { params: { slug: string } }) {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="relative min-h-[30vh] flex items-center justify-end flex-col">
-        <h2 className="text-center text-4xl section-title font-creteRound mt-2">
+        <h2 className="text-center text-4xl section-title font-luckiest mt-2">
           <span>{tag.name}</span>
         </h2>
 

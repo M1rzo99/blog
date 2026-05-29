@@ -23,7 +23,7 @@ function SearchCard(blog: IBlog) {
 						{format(new Date(blog.createdAt), 'MMM dd, yyyy')}
 					</p>
 				</div>
-				<h1 className='font-creteRound'>{blog.title}</h1>
+				<h1 className='font-luckiest'>{blog.title}</h1>
 			</DrawerClose>
 		</Link>
 	)

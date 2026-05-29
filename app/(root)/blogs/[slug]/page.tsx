@@ -1,9 +1,11 @@
+import Comments from '@/components/shared/comments'
+import PostStats from '@/components/shared/post-stats'
+import { Badge } from '@/components/ui/badge'
 import { getReadingTime } from '@/lib/utils'
 import { getBlogDetails } from '@/services/blog.service'
-
 import { format } from 'date-fns'
 import parse from 'html-react-parser'
-import { ArrowUpRight, CalendarDays, Clock, Minus } from 'lucide-react'
+import { ArrowUpRight, CalendarDays, Clock, Layers2, Tags } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import ShareBtns from '../../_components/share-btns'
@@ -17,9 +19,7 @@ export async function generateMetadata({
 	return {
 		title: blog.title,
 		description: blog.description,
-		openGraph: {
-			image: blog.image.url,
-		},
+		openGraph: { image: blog.image.url },
 	}
 }
 
@@ -27,63 +27,146 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 	const blog = await getBlogDetails(params.slug)
 
 	return (
-		<div className='pt-[15vh] max-w-5xl mx-auto'>
-			<h1 className='lg:text-6xl md:text-5xl text-4xl font-creteRound'>
+		<div className='pt-[12vh] max-w-4xl mx-auto px-4 pb-24'>
+
+			{/* Category & Tag Badges */}
+			<div className='flex items-center gap-2 mb-6'>
+				{blog.category?.slug && (
+					<Link href={`/categories/${blog.category.slug}`}>
+						<Badge variant='default' className='gap-1.5 text-sm px-3 py-1 cursor-pointer'>
+							<Layers2 className='w-3.5 h-3.5' />
+							{blog.category.name}
+						</Badge>
+					</Link>
+				)}
+				{blog.tag?.slug && (
+					<Link href={`/tags/${blog.tag.slug}`}>
+						<Badge variant='outline' className='gap-1.5 text-sm px-3 py-1 cursor-pointer'>
+							<Tags className='w-3.5 h-3.5' />
+							{blog.tag.name}
+						</Badge>
+					</Link>
+				)}
+			</div>
+
+			{/* Title — Playfair Display */}
+			<h1 className='font-luckiest text-4xl leading-tight tracking-tight mb-8'>
 				{blog.title}
 			</h1>
 
-			<div className='flex items-center flex-wrap max-md:justify-center gap-4 mt-4'>
-				<div className='flex items-center gap-2'>
-					<Image
-						src={blog.author.image?.url ?? '/01.jpg'}
-						alt='author'
-						width={30}
-						height={30}
-						className='object-cover rounded-sm'
-					/>
-					<p>by {blog.author.name}</p>
+			{/* Author & Meta Row */}
+			<div className='flex flex-wrap items-center gap-6 mb-10 pb-8 border-b border-border/60'>
+				{blog.author?.id && (
+					<Link href={`/author/${blog.author.id}`} className='flex items-center gap-3 group'>
+						<Image
+							src={blog.author.image?.url ?? '/01.jpg'}
+							alt={blog.author.name}
+							width={46}
+							height={46}
+							className='object-cover rounded-full ring-2 ring-primary/20 group-hover:ring-primary transition-all duration-300'
+						/>
+						<div>
+							<p className='text-sm font-semibold group-hover:text-primary transition-colors duration-200'>
+								{blog.author.name}
+							</p>
+							<p className='text-xs text-muted-foreground'>Muallif</p>
+						</div>
+					</Link>
+				)}
+				<div className='flex items-center gap-1.5 text-sm text-muted-foreground'>
+					<CalendarDays className='w-4 h-4' />
+					<span>{format(new Date(blog.createdAt), 'MMMM dd, yyyy')}</span>
 				</div>
-				<Minus />
-				<div className='flex items-center gap-2'>
-					<Clock className='w-5 h-5' />
-					<p>{getReadingTime(blog.content.html)} min read</p>
-				</div>
-				<Minus />
-				<div className='flex items-center gap-2'>
-					<CalendarDays className='w-5 h-5' />
-					<p>{format(new Date(blog.createdAt), 'MMM dd, yyyy')}</p>
+				<div className='flex items-center gap-1.5 text-sm text-muted-foreground'>
+					<Clock className='w-4 h-4' />
+					<span>{getReadingTime(blog.content.html)} daqiqa o&apos;qish</span>
 				</div>
 			</div>
 
-			<Image
-				src={blog.image.url}
-				alt='blog image'
-				width={900}
-				height={500}
-				className='mt-4 rounded-md w-full h-[400px] object-cover'
-			/>
+			{/* Hero Image */}
+			<div className='relative rounded-xl overflow-hidden mb-14 shadow-lg'>
+				<Image
+					src={blog.image.url}
+					alt='blog rasmi'
+					width={1200}
+					height={630}
+					className='w-full h-[420px] md:h-[520px] object-cover'
+					priority
+				/>
+				<div className='absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent' />
+			</div>
 
-			<div className='flex md:gap-12 max-md:flex-col-reverse mt-12 relative'>
-				<div className='flex flex-col space-y-3'>
+			{/* Content + Share Buttons */}
+			<div className='flex md:gap-14 max-md:flex-col-reverse relative'>
+				<div>
 					<div className='sticky top-36'>
-						<p className='text-lg uppercase text-muted-foreground'>Share</p>
+						<p className='text-xs uppercase tracking-widest text-muted-foreground mb-3'>
+							Ulashing
+						</p>
 						<ShareBtns />
 					</div>
 				</div>
-				<div className='flex-1 prose dark:prose-invert'>
+				<div className='flex-1 prose dark:prose-invert prose-base md:prose-lg max-w-none
+					prose-headings:font-luckiest prose-headings:tracking-tight
+					prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+					prose-img:rounded-xl prose-img:shadow-md
+					prose-blockquote:border-l-4 prose-blockquote:border-primary
+					prose-blockquote:text-muted-foreground prose-blockquote:not-italic
+					prose-code:text-primary prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5
+					prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none'>
 					{parse(blog.content.html)}
 				</div>
 			</div>
 
-			<div className='flex mt-6 gap-6 items-center max-md:flex-col'>
-				<Link
-					href={`/author/${blog.author.id}`}
-					className='flex items-center gap-2 hover:text-blue-500 underline transition-colors'
-				>
-					<span>See all posts by this author</span>
-					<ArrowUpRight />
-				</Link>
-			</div>
+			{/* Post Stats: likes · views · comments */}
+			<PostStats slug={params.slug} />
+
+			{/* Author Bio Card */}
+			{blog.author && (
+				<div className='rounded-xl border border-border/60 bg-secondary/30 p-6 md:p-8 flex flex-col sm:flex-row gap-5 items-start'>
+					<Image
+						src={blog.author.image?.url ?? '/01.jpg'}
+						alt={blog.author.name}
+						width={80}
+						height={80}
+						className='rounded-full object-cover flex-shrink-0 ring-2 ring-primary/30'
+					/>
+					<div className='flex-1'>
+						<p className='text-xs uppercase tracking-widest text-muted-foreground mb-1'>
+							Muallif haqida
+						</p>
+						{blog.author.id ? (
+							<Link
+								href={`/author/${blog.author.id}`}
+								className='font-luckiest text-2xl hover:text-primary transition-colors duration-200'
+							>
+								{blog.author.name}
+							</Link>
+						) : (
+							<span className='font-luckiest text-2xl'>
+								{blog.author.name}
+							</span>
+						)}
+						{blog.author.bio && (
+							<p className='text-muted-foreground mt-2 leading-relaxed text-sm'>
+								{blog.author.bio}
+							</p>
+						)}
+						{blog.author.id && (
+							<Link
+								href={`/author/${blog.author.id}`}
+								className='inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-primary hover:underline underline-offset-4'
+							>
+								Barcha maqolalarni ko&apos;rish
+								<ArrowUpRight className='w-4 h-4' />
+							</Link>
+						)}
+					</div>
+				</div>
+			)}
+
+			{/* Comments Section */}
+			<Comments slug={params.slug} authorName={blog.author?.name ?? ''} />
 		</div>
 	)
 }

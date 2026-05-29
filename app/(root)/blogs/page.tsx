@@ -12,7 +12,7 @@ async function BlogsPage() {
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-center flex-col'>
-				<h2 className='text-center text-4xl section-title font-creteRound'>
+				<h2 className='text-center text-4xl section-title font-luckiest'>
 					<span>Blogs</span>
 				</h2>
 

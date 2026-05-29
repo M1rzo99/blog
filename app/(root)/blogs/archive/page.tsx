@@ -14,7 +14,7 @@ async function ArchivePage() {
     <div className="max-w-6xl mx-auto">
       <div className="relative min-h-[40vh] flex items-center justify-end flex-col">
         <p className="text-lg text-muted-foreground">Showing posts from</p>
-        <h2 className="text-center text-4xl section-title font-creteRound mt-2">
+        <h2 className="text-center text-4xl section-title font-luckiest mt-2">
           <span>Archive</span>
         </h2>
 
@@ -42,7 +42,7 @@ async function ArchivePage() {
         <div key={blog.year}>
           <div className="flex flex-col space-y-3 mt-8">
             <div className="relative">
-              <span className="text-5xl font-creteRound relative z-20">{blog.year}</span>
+              <span className="text-5xl font-luckiest relative z-20">{blog.year}</span>
               <Archive className="absolute w-16 h-16 -translate-x-4 -translate-y-12 opacity-10" />
             </div>
           </div>

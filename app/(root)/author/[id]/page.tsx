@@ -1,9 +1,12 @@
 import BlogCard from '@/components/cards/blog'
 import { getDetailedAuthor } from '@/services/author.service'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
 async function Page({ params }: { params: { id: string } }) {
 	const author = await getDetailedAuthor(params.id)
+
+	if (!author) notFound()
 
 	return (
 		<div className='max-w-6xl mx-auto pt-36'>
@@ -26,7 +29,7 @@ async function Page({ params }: { params: { id: string } }) {
 					</p>
 				</div>
 			</div>
-			<h2 className='text-center text-4xl section-title font-creteRound my-12'>
+			<h2 className='text-center text-4xl section-title font-luckiest my-12'>
 				<span>Published Posts</span>
 			</h2>
 
