@@ -1,13 +1,5 @@
-import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest, NextResponse } from "next/server";
-
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-
-const LANG_NAMES: Record<string, string> = {
-  en: "English",
-  ko: "Korean",
-  uz: "Uzbek",
-};
+import translate from "google-translate-api-x";
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,34 +9,35 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing params" }, { status: 400 });
     }
 
-    const langName = LANG_NAMES[targetLang] ?? targetLang;
+    if (isHtml) {
+      const result = await translateHtml(text, targetLang);
+      return NextResponse.json({ translated: result });
+    }
 
-    const prompt = isHtml
-      ? `You are a precise translator. Translate the text content in the following HTML to ${langName}.
-CRITICAL rules:
-- Preserve ALL HTML tags, attributes, and structure exactly as-is
-- Only translate human-readable text between tags
-- Do NOT translate code, class names, IDs, URLs, or attribute values
-- Return ONLY the translated HTML with no explanation or markdown wrapper
-
-HTML to translate:
-${text}`
-      : `Translate the following text to ${langName}. Return ONLY the translation with no explanation:
-
-${text}`;
-
-    const message = await client.messages.create({
-      model: "claude-haiku-4-5-20251001",
-      max_tokens: 8192,
-      messages: [{ role: "user", content: prompt }],
-    });
-
-    const translated =
-      message.content[0].type === "text" ? message.content[0].text : "";
-
+    const result = await translate(text, { to: targetLang });
+    const translated = Array.isArray(result) ? result[0].text : result.text;
     return NextResponse.json({ translated });
   } catch (err) {
     console.error("Translation error:", err);
     return NextResponse.json({ error: "Translation failed" }, { status: 500 });
   }
+}
+
+async function translateHtml(html: string, targetLang: string): Promise<string> {
+  // Split HTML into tag vs text segments, translate only text nodes
+  const parts = html.split(/(<[^>]+>)/g);
+
+  const translated = await Promise.all(
+    parts.map(async (part) => {
+      if (!part || part.startsWith("<") || !part.trim()) return part;
+      try {
+        const res = await translate(part, { to: targetLang });
+        return res.text;
+      } catch {
+        return part;
+      }
+    })
+  );
+
+  return translated.join("");
 }
