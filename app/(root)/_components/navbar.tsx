@@ -1,4 +1,5 @@
 "use client";
+import { LanguageToggle } from "@/components/shared/language-toggle";
 import ModeToggle from "@/components/shared/mode-toggle";
 import { navLinks } from "@/constants";
 import Link from "next/link";
@@ -32,9 +33,10 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        {/* Search */}
+        {/* Search + Controls */}
         <div className="flex items-center gap-1">
           <GlobalSearch />
+          <LanguageToggle />
           <ModeToggle />
           <Mobile />
         </div>

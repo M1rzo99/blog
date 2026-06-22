@@ -3,6 +3,7 @@ import { ChildProps } from '@/types'
 import type { Metadata } from 'next'
 import { Luckiest_Guy, Playfair_Display, Work_Sans } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
+import { LanguageProvider } from './(root)/_components/providers/language-provider'
 import { ThemeProvider } from './(root)/_components/providers/theme-provider'
 import './globals.css'
 
@@ -58,9 +59,11 @@ function RootLayout({ children }: ChildProps) {
 					storageKey='q13-theme'
 					disableTransitionOnChange
 				>
-					<NextTopLoader showSpinner={false} />
-					{children}
-					<Toaster position='top-center' />
+					<LanguageProvider>
+						<NextTopLoader showSpinner={false} />
+						{children}
+						<Toaster position='top-center' />
+					</LanguageProvider>
 				</ThemeProvider>
 			</body>
 		</html>

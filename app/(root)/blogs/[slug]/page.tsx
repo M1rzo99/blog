@@ -4,11 +4,11 @@ import { Badge } from '@/components/ui/badge'
 import { getReadingTime } from '@/lib/utils'
 import { getBlogDetails } from '@/services/blog.service'
 import { format } from 'date-fns'
-import parse from 'html-react-parser'
 import { ArrowUpRight, CalendarDays, Clock, Layers2, Tags } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import ShareBtns from '../../_components/share-btns'
+import { TranslatableBlog } from './_components/translatable-blog'
 
 export async function generateMetadata({
 	params,
@@ -48,11 +48,6 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 					</Link>
 				)}
 			</div>
-
-			{/* Title — Playfair Display */}
-			<h1 className='font-luckiest text-4xl leading-tight tracking-tight mb-8'>
-				{blog.title}
-			</h1>
 
 			{/* Author & Meta Row */}
 			<div className='flex flex-wrap items-center gap-6 mb-10 pb-8 border-b border-border/60'>
@@ -106,16 +101,11 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 						<ShareBtns />
 					</div>
 				</div>
-				<div className='flex-1 prose dark:prose-invert prose-base md:prose-lg max-w-none
-					prose-headings:font-luckiest prose-headings:tracking-tight
-					prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-					prose-img:rounded-xl prose-img:shadow-md
-					prose-blockquote:border-l-4 prose-blockquote:border-primary
-					prose-blockquote:text-muted-foreground prose-blockquote:not-italic
-					prose-code:text-primary prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5
-					prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none'>
-					{parse(blog.content.html)}
-				</div>
+				<TranslatableBlog
+					title={blog.title}
+					contentHtml={blog.content.html}
+					slug={params.slug}
+				/>
 			</div>
 
 			{/* Post Stats: likes · views · comments */}
