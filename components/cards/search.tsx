@@ -13,7 +13,7 @@ function SearchCard(blog: IBlog) {
 				<Image
 					width={200}
 					height={200}
-					src={blog.image.url}
+					src={blog.image?.url ?? '/01.jpg'}
 					alt={blog.title}
 					className='rounded-md shadow-xl dark:shadow-white/10'
 				/>
