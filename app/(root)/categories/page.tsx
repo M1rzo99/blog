@@ -4,6 +4,7 @@ import { Dot, Home } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
+export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title:"All Categories",
 }

@@ -3,6 +3,7 @@ import { getBlogs } from '@/services/blog.service'
 import { Dot, Home } from 'lucide-react'
 import { Metadata } from 'next'
 import Link from 'next/link'
+export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
 	title: 'All blogs',
 }

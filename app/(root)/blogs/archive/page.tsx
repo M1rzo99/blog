@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import { Archive, Dot, Home } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
+export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title:"Archive blogs"
 }
