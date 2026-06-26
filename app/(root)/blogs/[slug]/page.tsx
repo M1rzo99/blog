@@ -91,21 +91,19 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 				<div className='absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent' />
 			</div>
 
-			{/* Content + Share Buttons */}
-			<div className='flex md:gap-14 max-md:flex-col-reverse relative'>
-				<div>
-					<div className='sticky top-36'>
-						<p className='text-xs uppercase tracking-widest text-muted-foreground mb-3'>
-							Ulashing
-						</p>
-						<ShareBtns />
-					</div>
-				</div>
-				<TranslatableBlog
-					title={blog.title}
-					contentHtml={blog.content.html}
-					slug={params.slug}
-				/>
+			{/* Content */}
+			<TranslatableBlog
+				title={blog.title}
+				contentHtml={blog.content.html}
+				slug={params.slug}
+			/>
+
+			{/* Share row */}
+			<div className='mt-10 pt-8 border-t border-border/40 flex items-center gap-3'>
+				<p className='text-xs uppercase tracking-widest text-muted-foreground shrink-0'>
+					Ulashing
+				</p>
+				<ShareBtns />
 			</div>
 
 			{/* Post Stats: likes · views · comments */}
