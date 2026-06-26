@@ -2,6 +2,8 @@ import BlogCard from '@/components/cards/blog'
 import BgArrow from '@/components/shared/bg-arrow'
 import { getBlogs } from '@/services/blog.service'
 
+export const dynamic = 'force-dynamic'
+
 async function Home() {
 	const blogs = await getBlogs()
 
