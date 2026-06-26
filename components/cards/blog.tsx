@@ -23,7 +23,7 @@ function BlogCard(blog: Props) {
 			<Link href={`/blogs/${blog.slug}`} className='block overflow-hidden'>
 				<div className='relative bg-secondary rounded-md overflow-hidden'>
 					<Image
-						src={blog.image.url}
+						src={blog.image?.url ?? '/01.jpg'}
 						alt='blog rasmi'
 						width={900}
 						height={500}

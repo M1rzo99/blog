@@ -19,7 +19,7 @@ export async function generateMetadata({
 	return {
 		title: blog.title,
 		description: blog.description,
-		openGraph: { image: blog.image.url },
+		openGraph: { image: blog.image?.url },
 	}
 }
 
@@ -81,7 +81,7 @@ async function SlugPage({ params }: { params: { slug: string } }) {
 			{/* Hero Image */}
 			<div className='relative rounded-xl overflow-hidden mb-14 shadow-lg'>
 				<Image
-					src={blog.image.url}
+					src={blog.image?.url ?? '/01.jpg'}
 					alt='blog rasmi'
 					width={1200}
 					height={630}
