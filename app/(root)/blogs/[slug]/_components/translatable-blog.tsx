@@ -1,5 +1,6 @@
 "use client";
 import { useLanguage } from "@/app/(root)/_components/providers/language-provider";
+import { LanguageToggle } from "@/components/shared/language-toggle";
 import parse from "html-react-parser";
 import { Loader2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -95,6 +96,11 @@ export function TranslatableBlog({ title, contentHtml, slug }: Props) {
           prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none"
       >
         {parse(displayHtml)}
+      </div>
+
+      <div className="mt-10 pt-8 border-t border-border/60 flex items-center gap-3">
+        <span className="text-xs uppercase tracking-widest text-muted-foreground">Til</span>
+        <LanguageToggle />
       </div>
     </>
   );
