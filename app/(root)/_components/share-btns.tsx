@@ -13,7 +13,7 @@ function ShareBtns() {
         .then(()=> toast.success("Link copied to clipboard"))
     }
   return (
-    <div className="flex flex-col max-md:flex-row md:space-y-3 max-md:space-x-3 mt-4">
+    <div className="flex flex-row gap-2">
               <Button size={"icon"} variant={"outline"} onClick={onCopy}>
                 <Twitter />
               </Button>

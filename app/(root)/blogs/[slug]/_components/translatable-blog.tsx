@@ -2,7 +2,7 @@
 import { useLanguage } from "@/app/(root)/_components/providers/language-provider";
 import { LanguageToggle } from "@/components/shared/language-toggle";
 import parse from "html-react-parser";
-import { Loader2 } from "lucide-react";
+import { Globe, Loader2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 interface Props {
@@ -81,12 +81,18 @@ export function TranslatableBlog({ title, contentHtml, slug }: Props) {
         </div>
       )}
 
-      <h1 className="font-luckiest text-4xl leading-tight tracking-tight mb-8">
+      <h1 className="font-luckiest text-4xl md:text-5xl leading-tight tracking-tight mb-5">
         {displayTitle}
       </h1>
 
+      <div className="flex items-center gap-2.5 mb-10">
+        <Globe className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+        <span className="text-xs text-muted-foreground">O'qish tili:</span>
+        <LanguageToggle />
+      </div>
+
       <div
-        className="flex-1 prose dark:prose-invert prose-base md:prose-lg max-w-none
+        className="prose dark:prose-invert prose-base md:prose-lg max-w-none
           prose-headings:font-luckiest prose-headings:tracking-tight
           prose-a:text-primary prose-a:no-underline hover:prose-a:underline
           prose-img:rounded-xl prose-img:shadow-md
@@ -96,11 +102,6 @@ export function TranslatableBlog({ title, contentHtml, slug }: Props) {
           prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none"
       >
         {parse(displayHtml)}
-      </div>
-
-      <div className="mt-10 pt-8 border-t border-border/60 flex items-center gap-3">
-        <span className="text-xs uppercase tracking-widest text-muted-foreground">Til</span>
-        <LanguageToggle />
       </div>
     </>
   );

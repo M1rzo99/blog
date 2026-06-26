@@ -12,16 +12,16 @@ export function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="flex items-center rounded-md border border-input overflow-hidden h-9">
+    <div className="flex items-center bg-muted/60 rounded-full p-1 gap-0.5">
       {LANGS.map(({ code, label }) => (
         <button
           key={code}
           onClick={() => setLanguage(code)}
           className={cn(
-            "px-2.5 h-full text-xs font-semibold tracking-wide transition-colors",
+            "px-3 py-1 text-xs font-semibold tracking-wide rounded-full transition-all duration-200",
             language === code
-              ? "bg-primary text-primary-foreground"
-              : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              ? "bg-background shadow-sm text-foreground"
+              : "text-muted-foreground hover:text-foreground"
           )}
         >
           {label}
